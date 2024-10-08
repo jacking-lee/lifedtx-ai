@@ -1,26 +1,21 @@
-
 body {
   font-family: Arial, sans-serif;
   background-color: #f0f2f5;
   margin: 0;
   padding: 0;
 }
-
 .home-page, .login-page, .register-page {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
-
 .home-header {
   text-align: center;
 }
-
 .home-buttons {
   margin-top: 20px;
 }
-
 .btn {
   margin: 10px;
   padding: 10px 20px;
@@ -30,40 +25,33 @@ body {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 .primary-btn {
   background-color: #4CAF50;
   color: white;
 }
-
 .secondary-btn {
   background-color: #007BFF;
   color: white;
 }
-
 .primary-btn:hover, .secondary-btn:hover {
   background-color: #333;
 }
-
 .login-container, .register-container {
   background-color: white;
   padding: 40px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
 .login-form, .register-form {
   display: flex;
   flex-direction: column;
 }
-
 .link-text {
   margin-top: 20px;
   text-align: center;
   color: #007BFF;
   text-decoration: none;
 }
-
 .link-text:hover {
   text-decoration: underline;
 }
