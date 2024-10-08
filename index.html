@@ -13,10 +13,14 @@ import './App.css'; // Assuming you have a CSS file for styling
 function HomePage() {
   return (
     <div className="home-page">
-      <h1>欢迎来到认知测试生成平台</h1>
-      <p>根据不同年龄段提供个性化认知能力测试</p>
-      <Link to="/login" className="btn">登录</Link>
-      <Link to="/register" className="btn">注册</Link>
+      <header className="home-header">
+        <h1>欢迎来到认知测试生成平台</h1>
+        <p>根据不同年龄段提供个性化认知能力测试</p>
+        <div className="home-buttons">
+          <Link to="/login" className="btn primary-btn">登录</Link>
+          <Link to="/register" className="btn secondary-btn">注册</Link>
+        </div>
+      </header>
     </div>
   );
 }
@@ -25,15 +29,17 @@ function HomePage() {
 function LoginPage() {
   return (
     <div className="login-page">
-      <h2>登录</h2>
-      <form>
-        <label>用户名:</label>
-        <input type="text" name="username" required />
-        <label>密码:</label>
-        <input type="password" name="password" required />
-        <button type="submit">登录</button>
-      </form>
-      <Link to="/register">没有账户？立即注册</Link>
+      <div className="login-container">
+        <h2>登录</h2>
+        <form className="login-form">
+          <label>用户名:</label>
+          <input type="text" name="username" required />
+          <label>密码:</label>
+          <input type="password" name="password" required />
+          <button type="submit" className="btn primary-btn">登录</button>
+        </form>
+        <Link to="/register" className="link-text">没有账户？立即注册</Link>
+      </div>
     </div>
   );
 }
@@ -42,17 +48,19 @@ function LoginPage() {
 function RegisterPage() {
   return (
     <div className="register-page">
-      <h2>注册</h2>
-      <form>
-        <label>用户名:</label>
-        <input type="text" name="username" required />
-        <label>邮箱:</label>
-        <input type="email" name="email" required />
-        <label>密码:</label>
-        <input type="password" name="password" required />
-        <button type="submit">注册</button>
-      </form>
-      <Link to="/login">已有账户？立即登录</Link>
+      <div className="register-container">
+        <h2>注册</h2>
+        <form className="register-form">
+          <label>用户名:</label>
+          <input type="text" name="username" required />
+          <label>邮箱:</label>
+          <input type="email" name="email" required />
+          <label>密码:</label>
+          <input type="password" name="password" required />
+          <button type="submit" className="btn primary-btn">注册</button>
+        </form>
+        <Link to="/login" className="link-text">已有账户？立即登录</Link>
+      </div>
     </div>
   );
 }
@@ -79,16 +87,61 @@ root.render(<App />);
 // Step 5: Create a basic CSS to style the components (in App.css)
 /* Example CSS - You can modify it accordingly */
 /*
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+  }
   .home-page, .login-page, .register-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .home-header {
     text-align: center;
-    margin-top: 50px;
+  }
+  .home-buttons {
+    margin-top: 20px;
   }
   .btn {
     margin: 10px;
     padding: 10px 20px;
     text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .primary-btn {
     background-color: #4CAF50;
     color: white;
-    border-radius: 5px;
+  }
+  .secondary-btn {
+    background-color: #007BFF;
+    color: white;
+  }
+  .primary-btn:hover, .secondary-btn:hover {
+    background-color: #333;
+  }
+  .login-container, .register-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .login-form, .register-form {
+    display: flex;
+    flex-direction: column;
+  }
+  .link-text {
+    margin-top: 20px;
+    text-align: center;
+    color: #007BFF;
+    text-decoration: none;
+  }
+  .link-text:hover {
+    text-decoration: underline;
   }
 */
