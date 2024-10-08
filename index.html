@@ -1,57 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LifeDTX Website</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <section id="home">
-        <h1>Welcome to LifeDTX</h1>
-        <p>We provide comprehensive digital health solutions for cardiovascular and mental health.</p>
-    </section>
+// Setting up the basic structure of the website's front-end using React.js
+// The code below provides a skeleton for a basic homepage, login, and registration page.
 
-    <section id="services">
-        <h2>Our Services</h2>
-        <ul>
-            <li>Remote Health Monitoring</li>
-            <li>Psychological Assessment</li>
-            <li>Digital Prescription Devices</li>
-        </ul>
-    </section>
+// Step 1: Import necessary libraries
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import './App.css'; // Assuming you have a CSS file for styling
 
-    <section id="about">
-        <h2>About Us</h2>
-        <p>LifeDTX is at the forefront of combining AI and healthcare technologies to provide personalized health services.</p>
-    </section>
+// Step 2: Create functional components for different pages
 
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <form action="#" method="post">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
+// Home Page Component
+function HomePage() {
+  return (
+    <div className="home-page">
+      <h1>欢迎来到认知测试生成平台</h1>
+      <p>根据不同年龄段提供个性化认知能力测试</p>
+      <Link to="/login" className="btn">登录</Link>
+      <Link to="/register" className="btn">注册</Link>
+    </div>
+  );
+}
 
-    <footer>
-        <p>&copy; 2024 LifeDTX. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+// Login Page Component
+function LoginPage() {
+  return (
+    <div className="login-page">
+      <h2>登录</h2>
+      <form>
+        <label>用户名:</label>
+        <input type="text" name="username" required />
+        <label>密码:</label>
+        <input type="password" name="password" required />
+        <button type="submit">登录</button>
+      </form>
+      <Link to="/register">没有账户？立即注册</Link>
+    </div>
+  );
+}
+
+// Register Page Component
+function RegisterPage() {
+  return (
+    <div className="register-page">
+      <h2>注册</h2>
+      <form>
+        <label>用户名:</label>
+        <input type="text" name="username" required />
+        <label>邮箱:</label>
+        <input type="email" name="email" required />
+        <label>密码:</label>
+        <input type="password" name="password" required />
+        <button type="submit">注册</button>
+      </form>
+      <Link to="/login">已有账户？立即登录</Link>
+    </div>
+  );
+}
+
+// Step 3: Define App Component that uses Router to switch between pages
+function App() {
+  return (
+    <Router>
+      <div className="app">
+        <Routes>
+          <Route exact path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+}
+
+// Step 4: Render the App Component
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+
+// Step 5: Create a basic CSS to style the components (in App.css)
+/* Example CSS - You can modify it accordingly */
+/*
+  .home-page, .login-page, .register-page {
+    text-align: center;
+    margin-top: 50px;
+  }
+  .btn {
+    margin: 10px;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+  }
+*/
